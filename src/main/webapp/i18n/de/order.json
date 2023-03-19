@@ -1,0 +1,30 @@
+{
+  "coopcycleApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Order erstellen",
+        "createOrEditLabel": "Order erstellen oder bearbeiten",
+        "notFound": "Keine Orders gefunden"
+      },
+      "created": "Order erstellt mit ID {{ param }}",
+      "updated": "Order aktualisiert mit ID {{ param }}",
+      "deleted": "Order gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Order {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "id": "ID",
+      "number": "Number",
+      "orderDate": "Order Date",
+      "deliveryDate": "Delivery Date",
+      "status": "Status",
+      "client": "Client",
+      "restaurant": "Restaurant",
+      "courier": "Courier"
+    }
+  }
+}

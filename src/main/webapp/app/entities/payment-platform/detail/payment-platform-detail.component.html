@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="paymentPlatform">
+      <h2 data-cy="paymentPlatformDetailsHeading">
+        <span jhiTranslate="coopcycleApp.paymentPlatform.detail.title">Payment Platform</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ paymentPlatform.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.paymentPlatform.amount">Amount</span></dt>
+        <dd>
+          <span>{{ paymentPlatform.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.paymentPlatform.paymentType">Payment Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'coopcycleApp.PaymentType.' + paymentPlatform.paymentType }}">{{ paymentPlatform.paymentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.paymentPlatform.order">Order</span></dt>
+        <dd>
+          <div *ngIf="paymentPlatform.order">
+            <a [routerLink]="['/order', paymentPlatform.order.id, 'view']">{{ paymentPlatform.order.number }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payment-platform', paymentPlatform.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

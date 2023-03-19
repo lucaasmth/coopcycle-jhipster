@@ -48,6 +48,11 @@ public class CacheConfiguration {
             createCache(cm, com.mathieulucas.coopcycle.domain.User.class.getName());
             createCache(cm, com.mathieulucas.coopcycle.domain.Authority.class.getName());
             createCache(cm, com.mathieulucas.coopcycle.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mathieulucas.coopcycle.domain.Client.class.getName());
+            createCache(cm, com.mathieulucas.coopcycle.domain.Restaurant.class.getName());
+            createCache(cm, com.mathieulucas.coopcycle.domain.Courier.class.getName());
+            createCache(cm, com.mathieulucas.coopcycle.domain.Order.class.getName());
+            createCache(cm, com.mathieulucas.coopcycle.domain.PaymentPlatform.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,10 @@
+{
+  "coopcycleApp": {
+    "VehicleType": {
+      "null": "",
+      "BIKE": "BIKE",
+      "CAR": "CAR",
+      "SCOOTER": "SCOOTER"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="courier">
+      <h2 data-cy="courierDetailsHeading"><span jhiTranslate="coopcycleApp.courier.detail.title">Courier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ courier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ courier.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ courier.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.email">Email</span></dt>
+        <dd>
+          <span>{{ courier.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.phone">Phone</span></dt>
+        <dd>
+          <span>{{ courier.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.vehicle">Vehicle</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'coopcycleApp.VehicleType.' + courier.vehicle }}">{{ courier.vehicle }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.status">Status</span></dt>
+        <dd>
+          <span>{{ courier.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.courier.restaurant">Restaurant</span></dt>
+        <dd>
+          <div *ngIf="courier.restaurant">
+            <a [routerLink]="['/restaurant', courier.restaurant.id, 'view']">{{ courier.restaurant.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/courier', courier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

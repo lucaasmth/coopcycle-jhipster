@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="CourierHeading">
+    <span jhiTranslate="coopcycleApp.courier.home.title">Couriers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="coopcycleApp.courier.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-courier"
+        [routerLink]="['/courier/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="coopcycleApp.courier.home.createLabel"> Create a new Courier </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="couriers?.length === 0">
+    <span jhiTranslate="coopcycleApp.courier.home.notFound">No Couriers found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="couriers && couriers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.phone">Phone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="vehicle">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.vehicle">Vehicle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="restaurant.name">
+            <div class="d-flex">
+              <span jhiTranslate="coopcycleApp.courier.restaurant">Restaurant</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let courier of couriers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/courier', courier.id, 'view']">{{ courier.id }}</a>
+          </td>
+          <td>{{ courier.lastName }}</td>
+          <td>{{ courier.firstName }}</td>
+          <td>{{ courier.email }}</td>
+          <td>{{ courier.phone }}</td>
+          <td jhiTranslate="{{ 'coopcycleApp.VehicleType.' + courier.vehicle }}">{{ courier.vehicle }}</td>
+          <td>{{ courier.status }}</td>
+          <td>
+            <div *ngIf="courier.restaurant">
+              <a [routerLink]="['/restaurant', courier.restaurant.id, 'view']">{{ courier.restaurant.name }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/courier', courier.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/courier', courier.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(courier)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

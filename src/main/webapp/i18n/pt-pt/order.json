@@ -1,0 +1,30 @@
+{
+  "coopcycleApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Order",
+        "createOrEditLabel": "Criar ou editar Order",
+        "notFound": "Nenhum Orders encontrado"
+      },
+      "created": "Um novo Order foi criado com o identificador {{ param }}",
+      "updated": "Order com identificador {{ param }} foi actualizado",
+      "deleted": "Order com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "id": "ID",
+      "number": "Number",
+      "orderDate": "Order Date",
+      "deliveryDate": "Delivery Date",
+      "status": "Status",
+      "client": "Client",
+      "restaurant": "Restaurant",
+      "courier": "Courier"
+    }
+  }
+}

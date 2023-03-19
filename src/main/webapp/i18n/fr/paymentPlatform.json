@@ -1,0 +1,26 @@
+{
+  "coopcycleApp": {
+    "paymentPlatform": {
+      "home": {
+        "title": "PaymentPlatforms",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Payment Platform",
+        "createOrEditLabel": "Créer ou éditer un Payment Platform",
+        "notFound": "Aucun Payment Platform trouvé"
+      },
+      "created": "Un nouveau Payment Platform a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Payment Platform avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Payment Platform avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Payment Platform {{ id }} ?"
+      },
+      "detail": {
+        "title": "Payment Platform"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "paymentType": "Payment Type",
+      "order": "Order"
+    }
+  }
+}

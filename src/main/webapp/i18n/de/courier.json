@@ -1,0 +1,30 @@
+{
+  "coopcycleApp": {
+    "courier": {
+      "home": {
+        "title": "Couriers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Courier erstellen",
+        "createOrEditLabel": "Courier erstellen oder bearbeiten",
+        "notFound": "Keine Couriers gefunden"
+      },
+      "created": "Courier erstellt mit ID {{ param }}",
+      "updated": "Courier aktualisiert mit ID {{ param }}",
+      "deleted": "Courier gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Courier {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Courier"
+      },
+      "id": "ID",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "email": "Email",
+      "phone": "Phone",
+      "vehicle": "Vehicle",
+      "status": "Status",
+      "restaurant": "Restaurant"
+    }
+  }
+}
