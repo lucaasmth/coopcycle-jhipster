@@ -1,0 +1,61 @@
+entity Client {
+    lastName String required minlength(3) maxlength(30),
+    firstName String required minlength(3) maxlength(30),
+    email String required unique pattern(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/),
+    phone String required unique pattern(/^\+[1-9]\d{1,14}$/),
+    address String required
+}
+
+entity Restaurant {
+    name String required,
+    address String required
+}
+
+entity Courier {
+    lastName String required minlength(3) maxlength(30),
+    firstName String required minlength(3) maxlength(30),
+    email String required unique pattern(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/),
+    phone String required unique pattern(/^\+[1-9]\d{1,14}$/),
+    vehicle VehicleType,
+    status String // Should be an enum
+}
+
+entity Order {
+	number Integer required unique
+    orderDate ZonedDateTime required,
+    deliveryDate ZonedDateTime,
+    status String  // Should also be an enum imo
+}
+
+entity PaymentPlatform {
+    amount Integer required,
+    paymentType PaymentType required,
+}
+
+enum PaymentType {
+    CB,
+    IZLY,
+    APPLE,
+    GOOGLE,
+    PAYPAL, 
+    CHEQUE_REPAS,
+    CRYPTO
+}
+
+enum VehicleType {
+	BIKE,
+    CAR,
+    SCOOTER
+}
+
+relationship ManyToOne {
+  Client{restaurant(name)} to Restaurant
+  Courier{restaurant(name)} to Restaurant
+  Order{client} to Client
+  Order{restaurant(name)} to Restaurant
+  Order{courier} to Courier
+  PaymentPlatform{order(number)} to Order
+}
+
+dto * with mapstruct
+
